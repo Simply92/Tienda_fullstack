@@ -8,7 +8,7 @@ const router = Router()
 router.get('/', getProducts)
 
 router.get('/:id',
-    param('id').isInt().withMessage('Id no válida'),
+    param('id').isInt().withMessage('Id no válido'),
     handleInputErrors,
     getProductById)
 
@@ -25,7 +25,7 @@ router.post('/',
     createProduct)
 
 router.put('/:id',
-    param('id').isInt().withMessage('Id no válida'),
+    param('id').isInt().withMessage('Id no válido'),
     body('name')
         .notEmpty().withMessage('El nombre del producto no puede ir vacio'),
     body('price')
@@ -38,12 +38,12 @@ router.put('/:id',
     updateProduct)
 
 router.patch('/:id',
-    param('id').isInt().withMessage('Id no válida'),
+    param('id').isInt().withMessage('Id no válido'),
     handleInputErrors,
     updateAvailability)
 
 router.delete('/:id',
-    param('id').isInt().withMessage('Id no válida'),
+    param('id').isInt().withMessage('Id no válido'),
     handleInputErrors,
     deleteProduct
 )
